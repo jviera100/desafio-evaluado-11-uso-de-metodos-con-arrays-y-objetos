@@ -81,3 +81,4 @@ document.addEventListener('DOMContentLoaded', function() {
     document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
     document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
 });
+

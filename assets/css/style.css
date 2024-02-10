@@ -1,0 +1,196 @@
+* /* Reset de estilos para todos los elementos */ /* importante */ {
+  margin: 0; /*margen*/
+  padding: 0; /*espacio entre elementos*/
+  border: 0; /*borde*/
+  font-family: "Cabin", sans-serif;
+}
+
+:root /* colores globales */ 
+{
+  --gray: #373a3c;
+  --whit-light: #dddddd;
+  --black: #000;
+  --white: #fff;
+  --red: #dc3545;
+}
+
+ul 
+{
+  padding-left: 0;
+}
+
+.fuente-especial /* Clase para el contenido que usa Lobster */ /* importante */ 
+{
+  font-family: "Lobster", sans-serif;
+  font-size: 30px;
+}
+
+
+
+/* NAVBAR */
+.navbar-toggler /* Color del icono svg del boton */  /* importante */ 
+{
+  border-color: var(--white) !important;
+}
+
+.navbar-toggler-icon /* Color y tamaño borde del boton */  /* importante */ 
+{
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+a.nav-link /* ajusta tamaño inicio, recetas, nosotros, contacto*/ /* importante */ 
+{
+  font-size: 16px;
+  color: var(--white);
+  font-family: "Cabin", sans-serif;
+  font-weight: normal;
+}
+
+/* SECCION PRINCIPAL(HERO SECTION): DESCRIPCION Y BOTONES */
+.seccion_principal_botones /* espacio entre botones navbar*/ /* importante */ 
+{
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* CARRUSEL */
+/* Cambiar el diseño de las barras por puntos en el carrusel en Bootstrap 5 */
+.carousel-indicators [data-bs-target] /* importante */ 
+{
+  border-radius: 50%;
+  width: 8px; /* Ajusta el tamaño de los puntos según tu preferencia */
+  height: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  opacity: 0.5; /* Opacidad de los puntos inactivos */
+  transition: opacity 0.6s ease;
+}
+
+.carousel-indicators /* importante */ 
+{
+  top: auto; /* Elimina la propiedad 'top' para que los puntos estén alineados en la parte inferior */
+  bottom: -60px; /* Ajusta la posición vertical de los puntos según tu preferencia */
+  left: 35%; /* Centra los puntos horizontalmente */
+  transform: translateX(-50%); /* Centra los puntos horizontalmente */
+}
+
+.carousel-indicators .active /* boton con color negro por la opacidad*/ /* importante */ 
+{
+  width: 10px; /* Ajusta el tamaño del punto activo según tu preferencia */
+  height: 10px;
+  background-color: var(--black);
+  opacity: 1; /* Punto activo completamente visible */
+}
+
+.carousel-indicators 
+{
+  position: static !important;
+  transform: none;
+}
+
+hr 
+{
+  margin: 1rem 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: inherit;
+  background-color: currentColor;
+  border: 0;
+  opacity: 1;
+}
+
+hr.hr-res
+{
+  width: 27%;
+}
+
+/* RECETA */
+ul /* quita los puntos a la lista de ingredientes */  /* importante */ 
+{
+  margin-top: 10px;
+  list-style-type: none;
+  text-align: left !important;
+}
+
+h1 /* baja el texto asl lado de la imagen*/
+{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+h2.h2-hero
+{
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+
+h3 /* titulo ingredientes  */ /* importante */ 
+{
+  font-size: 25px;
+  text-decoration: none;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  letter-spacing: 0.6px;
+}
+
+
+
+.receta /* estilo seccion receta*/ /* importante */ 
+{
+  font-size: 20px;
+  font-family: "Cabin", sans-serif;
+  background-color: var(--white);
+}
+
+/* CARDS */
+h5.card-title /* formato titulo cards */ /* importante */ 
+{
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 23px;
+}
+
+div.card-body /* texto interior de las cards*/ /* importante */ 
+{
+  /*        top  right    bot    left        */
+  padding: 0px 19.52px 33.81px 19.52px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+p.card-text
+{
+  text-align: left;
+  text-justify:distribute;
+  padding-top: 10px;
+}
+
+p.card-text2
+{
+  text-align: left;
+  text-justify:distribute;
+  padding-top: 20px;
+}
+
+
+/* NEWSLETTER */
+.empezar  /* estilo: boton empezar*/  /* importante */ 
+{
+  width: 233px;
+  padding-left: 90px;
+  padding-right: 90px;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.suscribete
+{
+  margin-top: 100px;
+}
+
+

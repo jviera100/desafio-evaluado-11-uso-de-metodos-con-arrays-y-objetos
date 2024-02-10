@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Centro Médico Ñuñoa</title>
+    <style>
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            background-color: #1e90ff;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="filtro">
+        <label for="filtroEspecialidad">Filtrar por Especialidad:</label>
+        <select id="filtroEspecialidad">
+            <option value="">Todos</option>
+            <option value="Radiología">Radiología</option>
+            <option value="Traumatología">Traumatología</option>
+            <option value="Dental">Dental</option>
+        </select>
+    </div>
+    <div class="filtro">
+        <label for="filtroDoctor">Filtrar por Doctor:</label>
+        <select id="filtroDoctor">
+            <option value="">Todos</option>
+            <option value="IGNACIO SCHULZ">IGNACIO SCHULZ</option>
+            <option value="FEDERICO SUBERCASEAUX">FEDERICO SUBERCASEAUX</option>
+            <option value="FERNANDO WURTHZ">FERNANDO WURTHZ</option>
+            <option value="ANA MARIA GODOY">ANA MARIA GODOY</option>
+            <option value="PATRICIA SUAZO">PATRICIA SUAZO</option>
+            <option value="MARIA PAZ ALTUZARRA">MARIA PAZ ALTUZARRA</option>
+            <option value="RAUL ARAYA">RAUL ARAYA</option>
+            <option value="MARIA ARRIAGADA">MARIA ARRIAGADA</option>
+            <option value="ALEJANDRO BADILLA">ALEJANDRO BADILLA</option>
+            <option value="CECILIA BUDNIK">CECILIA BUDNIK</option>
+            <option value="ARTURO CAVAGNARO">ARTURO CAVAGNARO</option>
+            <option value="ANDRES KANACRI">ANDRES KANACRI</option>
+            <option value="ANDREA ZUÑIGA">ANDREA ZUÑIGA</option>
+            <option value="MARIA PIA ZAÑARTU">MARIA PIA ZAÑARTU</option>
+            <option value="SCARLETT WITTING">SCARLETT WITTING</option>
+            <option value="FRANCISCO VON TEUBER">FRANCISCO VON TEUBER</option>
+            <option value="EDUARDO VIÑUELA">EDUARDO VIÑUELA</option>
+            <option value="RAQUEL VILLASECA">RAQUEL VILLASECA</option>
+        </select>
+    </div>
+    <div class="filtro">
+        <label for="filtroHora">Filtrar por Hora:</label>
+        <select id="filtroHora">
+            <option value="">Todos</option>
+            <option value="8:00">8:00</option>
+            <option value="8:30">8:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+        </select>
+    </div>
+    <div class="filtro">
+        <label for="filtroPaciente">Filtrar por Paciente:</label>
+        <select id="filtroPaciente">
+            <option value="">Todos</option>
+            <option value="FRANCISCA ROJAS">FRANCISCA ROJAS</option>
+            <option value="PAMELA ESTRADA">PAMELA ESTRADA</option>
+            <option value="ARMANDO LUNA">ARMANDO LUNA</option>
+            <option value="MANUEL GODOY">MANUEL GODOY</option>
+            <option value="RAMON ULLOA">RAMON ULLOA</option>
+            <option value="PAULA SANCHEZ">PAULA SANCHEZ</option>
+            <option value="ANGÉLICA NAVAS">ANGÉLICA NAVAS</option>
+            <option value="ANA KLAPP">ANA KLAPP</option>
+            <option value="FELIPE MARDONES">FELIPE MARDONES</option>
+            <option value="DIEGO MARRE">DIEGO MARRE</option>
+            <option value="CECILIA MENDEZ">CECILIA MENDEZ</option>
+            <option value="MARCIAL SUAZO">MARCIAL SUAZO</option>
+            <option value="MARCELA RETAMAL">MARCELA RETAMAL</option>
+            <option value="ANGEL MUÑOZ">ANGEL MUÑOZ</option>
+            <option value="MARIO KAST">MARIO KAST</option>
+            <option value="KARIN FERNANDEZ">KARIN FERNANDEZ</option>
+            <option value="HUGO SANCHEZ">HUGO SANCHEZ</option>
+            <option value="ANA SEPULVEDA">ANA SEPULVEDA</option>
+            <option value="ANA GELLONA">ANA GELLONA</option>
+            <option value="RAMIRO ANDRADE">RAMIRO ANDRADE</option>
+            <option value="CARMEN ISLA">CARMEN ISLA</option>
+            <option value="PABLO LOAYZA">PABLO LOAYZA</option>
+            <option value="SUSANA POBLETE">SUSANA POBLETE</option>
+        </select>
+    </div>
+    <div class="filtro">
+        <label for="filtroPrevision">Filtrar por Previsión:</label>
+        <select id="filtroPrevision">
+            <option value="">Todos</option>
+            <option value="FONASA">FONASA</option>
+            <option value="ISAPRE">ISAPRE</option>
+        </select>
+    </div>
+    <table id="tablaConsultas">
+        <caption>Consultas Médicas</caption>
+        <tr>
+            <th>Especialidad</th>
+            <th>Doctor</th>
+            <th>Hora</th>
+            <th>Paciente</th>
+            <th>RUT</th>
+            <th>Previsión</th>
+        </tr>
+    </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var radiologia = [
+                {hora: '11:00', especialidad: 'Radiología', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'},
+                {hora: '11:30', especialidad: 'Radiología', especialista: 'FEDERICO SUBERCASEAUX', paciente: 'PAMELA ESTRADA', rut: '15345241-3', prevision: 'ISAPRE'},
+                {hora: '15:00', especialidad: 'Radiología', especialista: 'FERNANDO WURTHZ', paciente: 'ARMANDO LUNA', rut: '16445345-9', prevision: 'ISAPRE'},
+                {hora: '15:30', especialidad: 'Radiología', especialista: 'ANA MARIA GODOY', paciente: 'MANUEL GODOY', rut: '17666419-0', prevision: 'FONASA'},
+                {hora: '16:00', especialidad: 'Radiología', especialista: 'PATRICIA SUAZO', paciente: 'RAMON ULLOA', rut: '14989389-K', prevision: 'FONASA'},
+            ];
+
+            var traumatologia = [
+                {hora: '8:00',  especialidad: 'Traumatología', especialista: 'MARIA PAZ ALTUZARRA', paciente: 'PAULA SANCHEZ', rut: '15554774-5', prevision: 'FONASA'},
+                {hora: '10:00', especialidad: 'Traumatología', especialista: 'RAUL ARAYA', paciente: 'ANGÉLICA NAVAS', rut: '15444147-9', prevision: 'ISAPRE'},
+                {hora: '10:30', especialidad: 'Traumatología', especialista: 'MARIA ARRIAGADA', paciente: 'ANA KLAPP', rut: '17879423-9', prevision: 'ISAPRE'},
+                {hora: '11:00', especialidad: 'Traumatología', especialista: 'ALEJANDRO BADILLA', paciente: 'FELIPE MARDONES', rut: '1547423-6', prevision: 'ISAPRE'},
+                {hora: '11:30', especialidad: 'Traumatología', especialista: 'CECILIA BUDNIK', paciente: 'DIEGO MARRE', rut: '16554741-K', prevision: 'FONASA'},
+                {hora: '12:00', especialidad: 'Traumatología', especialista: 'ARTURO CAVAGNARO', paciente: 'CECILIA MENDEZ', rut: '9747535-8', prevision: 'ISAPRE'},
+                {hora: '12:30', especialidad: 'Traumatología', especialista: 'ANDRES KANACRI', paciente: 'MARCIAL SUAZO', rut: '11254785-5', prevision: 'ISAPRE'},
+                {hora: '09:00', especialidad: 'Traumatología', especialista: 'RENÉ POBLETE', paciente: 'ANA GELLONA', rut: '13123329-7', prevision: 'ISAPRE'},
+                {hora: '09:30', especialidad: 'Traumatología', especialista: 'MARIA SOLAR', paciente: 'RAMIRO ANDRADE', rut: '12221451-K', prevision: 'FONASA'},
+                {hora: '10:00', especialidad: 'Traumatología', especialista: 'RAUL LOYOLA', paciente: 'CARMEN ISLA', rut: '10112348-3', prevision: 'ISAPRE'},
+                {hora: '10:30', especialidad: 'Traumatología', especialista: 'ANTONIO LARENAS', paciente: 'PABLO LOAYZA', rut: '13453234-1', prevision: 'ISAPRE'},
+                {hora: '12:00', especialidad: 'Traumatología', especialista: 'MATIAS ARAVENA', paciente: 'SUSANA POBLETE', rut: '14345656-6', prevision: 'FONASA'}
+            ];
+
+            var dental = [
+                {hora: '8:30',  especialidad: 'Dental', especialista: 'ANDREA ZUÑIGA', paciente: 'MARCELA RETAMAL', rut: '11123425-6', prevision: 'ISAPRE'},
+                {hora: '11:00', especialidad: 'Dental', especialista: 'MARIA PIA ZAÑARTU', paciente: 'ANGEL MUÑOZ', rut: '9878789-2', prevision: 'ISAPRE'},
+                {hora: '11:30', especialidad: 'Dental', especialista: 'SCARLETT WITTING', paciente: 'MARIO KAST', rut: '7998789-5', prevision: 'FONASA'},
+                {hora: '13:00', especialidad: 'Dental', especialista: 'FRANCISCO VON TEUBER', paciente: 'KARIN FERNANDEZ', rut: '18887662-K', prevision: 'FONASA'},
+                {hora: '13:30', especialidad: 'Dental', especialista: 'EDUARDO VIÑUELA', paciente: 'HUGO SANCHEZ', rut: '17665461-4', prevision: 'FONASA'},
+                {hora: '14:00', especialidad: 'Dental', especialista: 'RAQUEL VILLASECA', paciente: 'ANA SEPULVEDA', rut: '14441281-0', prevision: 'ISAPRE'},
+            ];
+
+            var pacientes = radiologia.concat(traumatologia, dental).map(consulta => consulta.paciente);
+            var doctores = radiologia.concat(traumatologia, dental).map(consulta => consulta.especialista);
+
+            var tablaConsultas = document.getElementById('tablaConsultas');
+
+            function mostrarConsultas(consultas) {
+                tablaConsultas.innerHTML = `
+                    <tr>
+                        <th>Especialidad</th>
+                        <th>Doctor</th>
+                        <th>Hora</th>
+                        <th>Paciente</th>
+                        <th>RUT</th>
+                        <th>Previsión</th>
+                    </tr>
+                `;
+                consultas.forEach(consulta => {
+                    tablaConsultas.innerHTML += `
+                        <tr>
+                            <td>${consulta.especialidad}</td>
+                            <td>${consulta.especialista}</td>
+                            <td>${consulta.hora}</td>
+                            <td>${consulta.paciente}</td>
+                            <td>${consulta.rut}</td>
+                            <td>${consulta.prevision}</td>
+                        </tr>
+                    `;
+                });
+            }
+
+            mostrarConsultas(radiologia.concat(traumatologia, dental));
+
+            document.getElementById('filtroEspecialidad').addEventListener('change', function() {
+                var especialidadSeleccionada = this.value;
+                var consultasFiltradas = especialidadSeleccionada ? radiologia.concat(traumatologia, dental).filter(consulta => consulta.especialidad === especialidadSeleccionada) : radiologia.concat(traumatologia, dental);
+                mostrarConsultas(consultasFiltradas);
+            });
+
+            document.getElementById('filtroDoctor').addEventListener('change', function() {
+                var doctorSeleccionado = this.value;
+                var consultasFiltradas = doctorSeleccionado ? radiologia.concat(traumatologia, dental).filter(consulta => consulta.especialista === doctorSeleccionado) : radiologia.concat(traumatologia, dental);
+                mostrarConsultas(consultasFiltradas);
+            });
+
+            document.getElementById('filtroHora').addEventListener('change', function() {
+                var horaSeleccionada = this.value;
+                var consultasFiltradas = horaSeleccionada ? radiologia.concat(traumatologia, dental).filter(consulta => consulta.hora === horaSeleccionada) : radiologia.concat(traumatologia, dental);
+                mostrarConsultas(consultasFiltradas);
+            });
+
+            document.getElementById('filtroPaciente').addEventListener('change', function() {
+                var pacienteSeleccionado = this.value;
+                var consultasFiltradas = pacienteSeleccionado ? radiologia.concat(traumatologia, dental).filter(consulta => consulta.paciente === pacienteSeleccionado) : radiologia.concat(traumatologia, dental);
+                mostrarConsultas(consultasFiltradas);
+            });
+
+            document.getElementById('filtroPrevision').addEventListener('change', function() {
+                var previsionSeleccionada = this.value;
+                var consultasFiltradas = previsionSeleccionada ? radiologia.concat(traumatologia, dental).filter(consulta => consulta.prevision === previsionSeleccionada) : radiologia.concat(traumatologia, dental);
+                mostrarConsultas(consultasFiltradas);
+            });
+        });
+    </script>
+</body>
+</html>
