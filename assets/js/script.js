@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.write('<h3>Consultas Médicas de Traumatología</h3>');
     traumatologia.forEach(consulta => {
-        document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        document.write(`<p>Hora: ${consulta.hora} - Especialista: ${consulta.especialista} - Paciente: ${consulta.paciente} - Rut: ${consulta.rut} - Prevision: ${consulta.prevision}</p>`);
     });
 
     // Requerimiento 2: Eliminar el primer y último elemento del arreglo de Radiología y mostrar en la página HTML
@@ -46,37 +46,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.write('<h3>Consultas Médicas de Radiología</h3>');
     radiologia.forEach(consulta => {
-        document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        document.write(`<p>Hora: ${consulta.hora} - Especialista: ${consulta.especialista} - Paciente: ${consulta.paciente} - Rut: ${consulta.rut} - Prevision: ${consulta.prevision}</p>`);
     });
 
     // Requerimiento 3: Imprimir en la página HTML la lista de consultas médicas de Dental
     document.write('<h3>Consultas Médicas de Dental</h3>');
     dental.forEach(consulta => {
-        document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        document.write(`<p>Hora: ${consulta.hora} - Especialista: ${consulta.especialista} - Paciente: ${consulta.paciente} - Rut: ${consulta.rut} - Prevision: ${consulta.prevision}</p>`);
     });
 
     // Requerimiento 4: Imprimir un listado total de todos los pacientes que se atendieron en el centro médico
     document.write('<h3>Listado de Pacientes Atendidos</h3>');
     const pacientesAtendidos = radiologia.concat(traumatologia, dental).map(consulta => consulta.paciente);
     pacientesAtendidos.forEach(paciente => {
-        document.write(`<p>${paciente}</p>`);
+        document.write(`<p>Paciente: ${paciente}</p>`);
     });
 
     // Requerimiento 5: Filtrar pacientes de ISAPRE en la lista de consultas médicas de Dental
     const pacientesIsapreDental = dental.filter(consulta => consulta.prevision === 'ISAPRE');
     document.write('<h3>Pacientes de ISAPRE en Dental</h3>');
     pacientesIsapreDental.forEach(consulta => {
-        document.write(`<p>${consulta.paciente} - ${consulta.prevision}</p>`);
+        document.write(`<p>Paciente: ${consulta.paciente} - Prevision: ${consulta.prevision}</p>`);
     });
 
     // Requerimiento 6: Filtrar pacientes de FONASA en la lista de consultas médicas de Traumatología
     const pacientesFonasaTraumatologia = traumatologia.filter(consulta => consulta.prevision === 'FONASA');
     document.write('<h3>Pacientes de FONASA en Traumatología</h3>');
     pacientesFonasaTraumatologia.forEach(consulta => {
-        document.write(`<p>${consulta.paciente} - ${consulta.prevision}</p>`);
+        document.write(`<p>Paciente: ${consulta.paciente} - Prevision: ${consulta.prevision}</p>`);
     });
 
     // Imprimir cantidad de atenciones por especialidad
+    document.write('<h3>Cantidad de atenciones por especialidad</h3>');
     document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
     document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
     document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
